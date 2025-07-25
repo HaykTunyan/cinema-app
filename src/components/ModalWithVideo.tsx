@@ -1,23 +1,18 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { ModalWithVideoProps } from "@/types/interface";
+import { getEmbedUrl } from "@/constants/help";
 
-interface ModalWithVideoProps {
-  title: string;
-  videoUrl?: string;     // e.g., /videos/sample.mp4
-  youtubeUrl?: string;   // e.g., https://www.youtube.com/watch?v=abc123
-  show: boolean;
-  onClose: () => void;
-}
-
-// Convert various YouTube formats to /embed/ID
-function getEmbedUrl(url?: string): string | null {
-  if (!url) return null;
-  const match = url.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/
-  );
-  return match ? `https://www.youtube.com/embed/${match[1]}` : null;
-}
+/**
+ * Props for the ModalWithVideo component.
+ *
+ * @property {string} title - Title displayed at the top of the modal.
+ * @property {string} [videoUrl] - Optional URL for a local or hosted video (non-YouTube).
+ * @property {string} [youtubeUrl] - Optional YouTube URL to embed a video.
+ * @property {boolean} show - Controls whether the modal is visible.
+ * @property {() => void} onClose - Callback fired when modal is requested to be closed.
+ */
 
 const ModalWithVideo: React.FC<ModalWithVideoProps> = ({
   title,
@@ -26,7 +21,10 @@ const ModalWithVideo: React.FC<ModalWithVideoProps> = ({
   show,
   onClose,
 }) => {
-  // ESC to close
+  /**
+   * Handles ESC key to close the modal.
+   */
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -42,7 +40,6 @@ const ModalWithVideo: React.FC<ModalWithVideoProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#040404]/80 backdrop-blur-sm">
       <div className="relative w-full max-w-5xl mx-4 sm:mx-auto bg-[#040404] rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-fadeIn">
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition cursor-pointer"
@@ -64,11 +61,9 @@ const ModalWithVideo: React.FC<ModalWithVideoProps> = ({
           </svg>
         </button>
 
-        {/* Header */}
         <div className="p-5 pb-3 text-white text-2xl font-bold">{title}</div>
 
-        {/* Video Section */}
-        <div className="w-full h-[300px] bg-black">
+        <div className="w-full h-[500px] bg-black">
           {embedUrl ? (
             <iframe
               src={embedUrl}

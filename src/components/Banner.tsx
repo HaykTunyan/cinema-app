@@ -26,7 +26,7 @@ export default function Banner({
 
   return (
     <section
-      className="relative w-full h-[90vh] flex items-center px-8 py-12 bg-cover bg-center"
+      className="relative w-full h-[75vh] flex items-center px-8 py-12 bg-cover bg-center"
       style={{
         backgroundImage: `url(${backgroundUrl})`,
         backgroundSize: "cover",
@@ -37,7 +37,7 @@ export default function Banner({
       <div className="absolute inset-0 bg-black/10 z-0" />
 
       {/* Content */}
-      <div className="relative bottom-20 z-10 max-w-2xl text-white space-y-4">
+      <div className="relative  z-10 max-w-2xl text-white space-y-4">
         <p className="uppercase text-sm tracking-widest text-gray-300 pb-0">
           Movie
         </p>

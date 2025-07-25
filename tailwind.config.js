@@ -10,7 +10,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        tajawal: ['Tajawal', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

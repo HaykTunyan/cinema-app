@@ -1,5 +1,4 @@
-//
-
+// Global types for the cinema app
 
 export interface Movie {
   Id: string;
@@ -18,3 +17,10 @@ export interface DataInformation {
   Featured: Movie;
   TendingNow: Movie[];
 }
+
+export type SidebarItemProps = {
+  src: any;
+  label: string;
+  href?: string;
+  hovered: boolean;
+};

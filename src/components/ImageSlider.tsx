@@ -1,31 +1,30 @@
-
-
-// Slider component for displaying images in a carousel format.
-
-
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
+/**
+ * Props for the Slider component.
+ *
+ * @property {string[]} images - Array of image URLs to be displayed in the carousel.
+ */
 
 const Slider = ({ images }: { images: string[] }) => {
-
-    /**
-     *  Slider Component Hooks.
-     * 
-     */
-
+  /**
+   * Slider component displays a full-width image carousel that automatically changes slides
+   * every 2 seconds.
+   *
+   * @param {SliderProps} props - Props containing an array of image URLs.
+   *
+   */
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
-  useEffect( () => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 2000); // Change slide every 2 seconds
 
-    return () => clearInterval(interval); 
-  } ,[])
-
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative w-full h-64 overflow-hidden">
@@ -47,6 +46,6 @@ const Slider = ({ images }: { images: string[] }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Slider;
