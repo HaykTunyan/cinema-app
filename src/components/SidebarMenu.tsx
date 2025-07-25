@@ -24,26 +24,30 @@ export default function Sidebar({ hovered, setHovered }: SidebarProps) {
   return (
 <Fragment>
 
-  {hovered && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/40 z-40 transition-opacity duration-300 pointer-events-none" />
-      )}
+
+
+
+<div
+  className="fixed top-0 left-0 w-full h-full bg-black/50 z-50 transition-opacity duration-300 pointer-events-none"
+  style={{ opacity: hovered ? 1 : 0 }}
+/>
 
 
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={`fixed z-50 transition-all duration-500 ease-in-out pl-16 pb-8 pt-[60px]  ${
-        hovered ? "translate-x-0 bg-black w-56" : "-translate-x-10 bg-black/0"
+        hovered ? "translate-x-0 bg-black w-56" : "-translate-x-10 /0"
       }`}
       style={{
         top: "0px",
         bottom: "0px",
-        left: "30px",
+        left: "20px",
       }}
     >
       <div
         className={`h-full transition-all duration-500 ease-in-out text-white rounded-xl overflow-hidden ${
-          hovered ? "w-56 " : "w-20"
+          hovered ? "w-52 " : "w-20"
         } flex flex-col justify-between backdrop-blur-md`}
       >
         {/* TOP USER SECTION */}
@@ -53,7 +57,7 @@ export default function Sidebar({ hovered, setHovered }: SidebarProps) {
           <div className="p-4 flex items-center gap-4 h-[66px]">
             <div
               className={`w-[50px] h-[50px] flex-shrink-0 transition-opacity duration-300 ${
-                hovered ? "opacity-100 bg-black" : "opacity-0"
+                hovered ? "opacity-100 bg-[#040404]" : "opacity-0"
               }`}
             >
               <Image src={UserIcon} alt="User Icon" width={50} height={50} />
@@ -92,11 +96,11 @@ export default function Sidebar({ hovered, setHovered }: SidebarProps) {
         </div>
 
         {/* BOTTOM TEXT LINKS */}
-        <div className="p-4 flex flex-col gap-2 text-sm text-gray-400">
+        <div className="p-4 flex flex-col gap-2 text-sm text-[#858688]">
           {["Language", "Get Help", "Exit"].map((text) => (
-            <div key={text} className="flex items-center gap-4">
+            <div key={text} className="flex items-center gap-4 pl-4 cursor-pointer">
               <span
-                className={`transition-all duration-300 whitespace-nowrap ${
+                className={`transition-all duration-300 whitespace-nowrap uppercase tracking-widest ${
                   hovered
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-4 pointer-events-none"

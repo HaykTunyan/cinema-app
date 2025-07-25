@@ -40,8 +40,8 @@ const ModalWithVideo: React.FC<ModalWithVideoProps> = ({
   const embedUrl = getEmbedUrl(youtubeUrl);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-      <div className="relative w-full max-w-5xl mx-4 sm:mx-auto bg-zinc-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#040404]/80 backdrop-blur-sm">
+      <div className="relative w-full max-w-5xl mx-4 sm:mx-auto bg-[#040404] rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-fadeIn">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -68,7 +68,7 @@ const ModalWithVideo: React.FC<ModalWithVideoProps> = ({
         <div className="p-5 pb-3 text-white text-2xl font-bold">{title}</div>
 
         {/* Video Section */}
-        <div className="w-full h-[300px] sm:h-[500px] bg-black">
+        <div className="w-full h-[300px] bg-black">
           {embedUrl ? (
             <iframe
               src={embedUrl}

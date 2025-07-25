@@ -86,12 +86,16 @@ export default function Home() {
     <div className="flex min-h-screen bg-black text-white">
       {/* Sidebar */}
 
-      <div
-        className="fixed top-0 left-0 h-full w-1/2 z-40 pointer-events-none bg-gradient-to-r from-black via-black/40 to-transparent transition-opacity duration-300"
-        style={{ opacity: sidebarHovered ? 1 : 0 }}
-      />
+    
+    {sidebarHovered && (
+  <div
+    className="fixed top-0 left-0 h-full w-full z-50 pointer-events-none bg-gradient-to-r from-black via-black/50 to-transparent transition-opacity duration-300"
+    style={{ opacity: sidebarHovered ? 1 : 0 }}
+  />
+)}
 
-      <div className="w-[180px] bg-black/80 flex flex-col items-center py-6 ">
+
+      <div className="w-[140px] bg-black/80 flex flex-col items-center py-6 ">
         {/* <Sidebar /> */}
         <Sidebar hovered={sidebarHovered} setHovered={setSidebarHovered} />
       </div>

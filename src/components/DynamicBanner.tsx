@@ -35,7 +35,7 @@ export default function DynamicBanner({
 
 
   return (
-    <section className="w-full h-[600px] flex flex-col md:flex-row bg-[#0e0e0e] rounded-xl overflow-hidden mt-10 shadow-xl">
+    <section className="w-full h-[600px] flex flex-row bg-[#040404] rounded-xl overflow-hidden mt-10 shadow-xl">
       {/* Left: Text Content */}
       <div className="flex flex-col justify-center flex-1 p-10 text-white space-y-6">
         
@@ -83,14 +83,17 @@ export default function DynamicBanner({
       </div>
 
       {/* Right: Cover Image */}
-      <div className="flex-1 relative h-[300px] md:h-auto">
-        <Image
-          src={coverImageUrl}
-          alt={title}
-          fill
-          className="object-cover"
-        />
-      </div>
+      <div className="flex-1 relative h-full min-w-[300px]">
+  {/* Optional gradient overlay */}
+  
+  <Image
+    src={coverImageUrl}
+    alt={title}
+    fill
+    priority
+    className="object-contain object-right h-full z-0"
+  />
+</div>
     </section>
   );
 }
