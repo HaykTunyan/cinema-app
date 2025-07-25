@@ -56,3 +56,19 @@ export interface MovieLayoutProps {
   VideoUrl?: string;
   YoutubeUrl?: string;
 }
+
+export interface FeatureMovieProps { 
+
+    Id: string;
+    Title: string;
+    CoverImage: string;
+    TitleImage: string;
+    Date: string;
+    ReleaseYear: string;
+    MpaRating: string;
+    Category: string;
+    Duration: string;
+    VideoUrl: string;
+    YoutubeUrl: string;
+    Description: string;
+}

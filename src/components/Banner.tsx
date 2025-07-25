@@ -3,7 +3,7 @@ import Image from "next/image";
 import TitlteBanner from "../../public/images/cover-image-title.png";
 
 interface BannerProps {
-  title: string;
+  title?: string;
   year: number | string;
   rating: string;
   duration: string;
@@ -12,7 +12,6 @@ interface BannerProps {
 }
 
 export default function Banner({
-  title,
   year,
   rating,
   duration,
@@ -37,7 +36,7 @@ export default function Banner({
       <div className="absolute inset-0 bg-black/10 z-0" />
 
       {/* Content */}
-      <div className="relative  z-10 max-w-2xl text-white space-y-4">
+      <div className="relative z-10 max-w-2xl text-white space-y-4">
         <p className="uppercase text-sm tracking-widest text-gray-300 pb-0">
           Movie
         </p>

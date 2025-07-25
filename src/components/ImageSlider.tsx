@@ -21,10 +21,10 @@ const Slider = ({ images }: { images: string[] }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2000); // Change slide every 2 seconds
-
+    }, 2000);
+    // Clear the interval on component unmount
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="relative w-full h-64 overflow-hidden">

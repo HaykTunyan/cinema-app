@@ -6,7 +6,6 @@ import Banner from "@/components/Banner";
 import DynamicBanner from "@/components/DynamicBanner";
 import SliderFooter from "@/components/SliderFooter";
 import ModalWithVideo from "@/components/ModalWithVideo";
-
 import dataInformation from "@/lib/data.json";
 
 /**
@@ -67,8 +66,12 @@ export default function Home() {
     if (movie) {
       localStorage.setItem("lastViewedMovie", JSON.stringify(movie));
       localStorage.setItem("lastViewedMovieId", id);
-      // @ts-ignore
-      setFeaturedMovie(movie);
+
+      // Update the featured movie state
+      setFeaturedMovie({
+        ...movie,
+        ReleaseYear: typeof movie.ReleaseYear === "string" ? parseInt(movie.ReleaseYear, 10) : movie.ReleaseYear,
+      });
     }
   };
 

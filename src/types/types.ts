@@ -1,4 +1,5 @@
 // Global types for the cinema app
+import type { StaticImageData } from "next/image";
 
 export interface Movie {
   Id: string;
@@ -6,7 +7,7 @@ export interface Movie {
   CoverImage: string;
   TitleImage: string;
   Date: string;
-   ReleaseYear: number;
+  ReleaseYear: number;
   MpaRating: string;
   Category: string;
   Duration: string | number;
@@ -19,7 +20,7 @@ export interface DataInformation {
 }
 
 export type SidebarItemProps = {
-  src: any;
+  src: string | StaticImageData;
   label: string;
   href?: string;
   hovered: boolean;
